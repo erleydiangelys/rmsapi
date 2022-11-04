@@ -42,29 +42,6 @@ function Episodes() {
     })
   }
 
-  const search = () => {
-    api.get(`character/?name=${inputValue}`).then((item) => {
-      setDados(item.data.results);
-      // setTotalPages(item.data.info.pages)
-      // setTotalItens(item.data.info.count)
-      console.log(item.data);
-  })
-}
-
-  // const proxPage = () => {
-  //   setLoading(true)
-  //   setPage(page + 1)
-  //   busca()
-  //   setLoading(false)
-  // }
-
-  // const antPage = () => {
-  //   setLoading(true)
-  //   setPage(page - 1)
-  //   busca()
-  //   setLoading(false)
-  // }
-
   React.useEffect(() => {
     busca()
   }, [])
@@ -74,14 +51,6 @@ function Episodes() {
       <Box textAlign="center" fontSize="xl"  mt='20'  id='topo'>
         <Grid minH="100vh" p={3}>
           <Box justify="center">
-
-          <Flex justify='center'> 
-            <InputGroup m='4' maxW='90%'>
-              <Input type='text' focusBorderColor='lime' placeholder='Buscar Planeta' onChange={(e) => setInputValue(e.target.value)} />
-              <InputRightElement children={
-                <IconButton onClick={() => search()} variant='ghost' icon={<Icon as={SearchAlt} />} />} />
-            </InputGroup>
-          </Flex>
 
 
             <Grid templateColumns={{base: '1fr', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)'}} gap='5' justify='center'>
